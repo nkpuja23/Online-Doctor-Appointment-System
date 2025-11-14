@@ -1,3 +1,4 @@
+# Online Doctor Appointment System
 🏥 NK Hospitals Scheduling Portal
 This project is a full-stack, secure web application designed to modernize the patient appointment workflow, moving beyond phone calls and manual records into a seamless digital system. It serves as a comprehensive demonstration of Database Management System (DBMS) principles, security best practices, and advanced PHP engineering.
 
