@@ -1,0 +1,269 @@
+/* 1. IMPORT FONT (Poppins - Clean and Modern) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+
+/* --- CSS ANIMATIONS (The Moving Graphics) --- */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes subtleMotion {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+/* 2. BASE STYLES */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5faff; /* Very light, cool off-white */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensure body occupies full viewport height */
+    /* Apply subtle moving background pattern */
+    background-image: radial-gradient(#b3e5fc 1px, transparent 0);
+    background-size: 50px 50px;
+    animation: subtleMotion 60s linear infinite;
+}
+
+/* --- FULL-SCREEN LAYOUT FIXES --- */
+
+.container {
+    max-width: 100% !important; 
+    min-height: 100vh;
+    margin: 0; 
+    padding: 0; 
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.centered-content {
+    max-width: 950px; /* Increased max width for cards */
+    margin: 30px auto; 
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 51, 102, 0.2);
+}
+
+/* 3. AQUA HEADER BAR */
+.header-bar {
+    background: linear-gradient(135deg, #e0506a, #8dc8da); /* Aqua to Rose Gradient */
+    background-size: 200% 200%;
+    color: white;
+    padding: 40px 0;
+    margin: 0; 
+    border-radius: 0;
+    text-align: center;
+    animation: gradientShift 10s ease infinite;
+}
+
+.header-bar h1 {
+    color: white;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 600; 
+    margin: 0 auto;
+    font-size: 2.2em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.logo-circle {
+    width: 50px;
+    height: 50px;
+    border: 3px solid white;
+    border-radius: 50%;
+    line-height: 44px;
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-right: 15px;
+    text-align: center;
+}
+
+/* --- NEW: PHONE AND CLOCK STYLING --- */
+.phone-display {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+.live-clock {
+    color: #ffffff;
+    font-size: 0.9em;
+    font-weight: 400; 
+    white-space: nowrap; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- NEW: ROLE CARD STYLING (IMAGE BASED) --- */
+
+.role-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.role-card {
+    display: block;
+    width: 280px; 
+    height: 300px;
+    text-align: left;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.472);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+}
+
+.role-card:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 15px 30px rgba(0, 191, 255, 0.4); 
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5; 
+    transition: opacity 0.3s ease;
+}
+
+.role-card:hover .card-image {
+    opacity: 0.2;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)); 
+    color: white; 
+    min-height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.role-title {
+    font-weight: 700;
+    font-size: 1.4em; 
+    margin-bottom: 5px;
+    color: #00bfff; 
+}
+
+/* --- SPECIALIZATION DROPDOWN & INFO TAB STYLING --- */
+.spec-info-section {
+    margin-top: 40px;
+    border: 1px solid #b3e5fc;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.382);
+}
+
+.info-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    display: none; /* Hidden by default */
+    border-left: 5px solid;
+    transition: all 0.3s ease;
+}
+/* Specific colors for info boxes */
+.info-box.cardiology { border-color: #ff6b81; background-color: #fff0f5; }
+.info-box.orthopedics { border-color: #28a745; background-color: #f0fff0; }
+.info-box.neurology { border-color: #9370db; background-color: #faf0ff; }
+
+
+/* 4. TYPOGRAPHY & ACCENTS (Rest of styles unchanged) */
+h2, h3 {
+    color: #0077b6; 
+    border-bottom: 2px solid #b3e5fc; 
+    padding-bottom: 8px;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+a {
+    color: #00bfff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0099cc;
+}
+
+/* 5. INPUTS & BUTTONS */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #b3e5fc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.2); 
+    outline: none;
+}
+
+button, .button {
+    background-color: #00bfff; 
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover, .button:hover {
+    background-color: #0099cc; 
+    transform: translateY(-1px);
+}
+
+/* 6. TABLE STYLING */
+table {
+    width: 100%;
+    border-collapse: separate; 
+    border-spacing: 0 5px; 
+    margin-top: 25px;
+}
+
+th, td {
+    border: none;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #e0f7fa;
+    color: #0077b6;
+    font-weight: 600;
+}
+
+table tr:hover {
+    background-color: #f0ffff; 
+    cursor: pointer;
+}
+
+/* 7. STATUS COLORS */
+.status-pending { color: #ff8c00; font-weight: 600; }
+.status-confirmed { color: #28a745; font-weight: 600; }
+.status-completed { color: #6c757d; }
+.status-cancelled { color: #dc3545; font-weight: bold; }
